@@ -3,10 +3,11 @@ package com.example.studentmanagement.service;
 import com.example.studentmanagement.entity.Student;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StudentService {
 
-    List<Student> getAllStudents();
+    List<Student> getAllStudents(String keyword);
 
     Student saveStudent(Student student);
 
@@ -14,6 +15,4 @@ public interface StudentService {
     Student updateStudent(Student student);
 
     void deleteStudentById(Long id);
-
-
 }

@@ -17,10 +17,11 @@ public class StudentServiceImpl implements StudentService {
         this.studentRepository = studentRepository;
     }
 
-
-
     @Override
-    public List<Student> getAllStudents() {
+    public List<Student> getAllStudents(String keyword) {
+        if ((keyword != null)) {
+            return studentRepository.search(keyword);
+        }
         return studentRepository.findAll();
     }
 
@@ -43,4 +44,6 @@ public class StudentServiceImpl implements StudentService {
     public void deleteStudentById(Long id) {
         studentRepository.deleteById(id);
     }
+
 }
+
