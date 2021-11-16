@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>School Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md justify-content-between bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">School Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-placement="bottom" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+        </ul>
+    </div>
+
+</nav>
+<div class = "container">
+    <div class = "row">
+        <h1> Welcome to my program !
+          -- School Management -- </h1>
+    </div>
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href="@{/students}" class = "btn btn-primary btn-sm mb-3"> Go to students</a>
+        </div>
+        <div class = "col-lg-3">
+            <a th:href="@{/teachers}" class = "btn btn-primary btn-sm mb-3"> Go to teachers</a>
+        </div>
+    </div>
+</form>
+</div>
+</body>
+</html>
