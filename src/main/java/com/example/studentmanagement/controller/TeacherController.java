@@ -1,13 +1,17 @@
 package com.example.studentmanagement.controller;
 
+import com.example.studentmanagement.entity.Student;
 import com.example.studentmanagement.entity.Teacher;
 import com.example.studentmanagement.service.TeacherService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class TeacherController {
@@ -20,12 +24,13 @@ public class TeacherController {
     }
 
     @GetMapping("/teachers")
-    public String listTeachers(Model model){
-        model.addAttribute("teachers", teacherService.getAllTeachers());
+    public String listTeachers(Model model, @Param("keyword") String keyword){
+        List<Teacher> teachers = teacherService.getAllTeachers(keyword);
+        model.addAttribute("teachers", teachers);
+        model.addAttribute("keyword", keyword);
+
         return "teachers";
     }
-
-
 
     @GetMapping("/teachers/new")
     public String createTeacherForm(Model model){
@@ -38,7 +43,6 @@ public class TeacherController {
         teacherService.saveTeacher(teacher);
         return "redirect:/teachers";
     }
-
 
     @GetMapping("/teachers/edit/{id}")
     public String editTeacherForm(@PathVariable Long id, Model model){

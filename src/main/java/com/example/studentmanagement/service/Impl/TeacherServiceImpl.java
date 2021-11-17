@@ -12,15 +12,17 @@ public class TeacherServiceImpl implements TeacherService {
 
     private TeacherRepository teacherRepository;
 
-
     public TeacherServiceImpl(TeacherRepository teacherRepository) {
         super();
         this.teacherRepository = teacherRepository;
     }
 
     @Override
-    public List<Teacher> getAllTeachers() {
-    return teacherRepository.findAll();
+    public List<Teacher> getAllTeachers(String keyword) {
+        if ((keyword != null)) {
+            return teacherRepository.search(keyword);
+        }
+        return teacherRepository.findAll();
     }
 
     @Override
@@ -42,6 +44,5 @@ public class TeacherServiceImpl implements TeacherService {
     public void deleteTeacherById(Long id) {
         teacherRepository.deleteById(id);
     }
-
 
 }

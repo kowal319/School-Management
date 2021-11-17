@@ -6,35 +6,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md justify-content-between bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">School Management System</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-placement="bottom" data-target="#collapsibleNavbar">
+<!-- option to go to school management main page -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand"  th:href="@{/home}" href="#">School Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
+
+        <!-- nav bar -->
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-        </ul>
-    </div>
 
-</nav>
-<div class = "container">
-    <div class = "row">
-        <h1> Welcome to my program !
-          -- School Management -- </h1>
-    </div>
-    <div class = "row">
-        <div class = "col-lg-3">
-            <a th:href="@{/students}" class = "btn btn-primary btn-sm mb-3"> Go to students</a>
-        </div>
-        <div class = "col-lg-3">
-            <a th:href="@{/teachers}" class = "btn btn-primary btn-sm mb-3"> Go to teachers</a>
-        </div>
-    </div>
+            <!-- option to go to Student Management main page -->
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">Student Management</a>
+            </li>
+
+            <!-- option to go to Teacher Management main page -->
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/teachers}">Teacher Management</a>
+            </li>
+        </ul>
 </form>
-</div>
+    </div>
+</nav>
 </body>
 </html>
